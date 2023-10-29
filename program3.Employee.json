@@ -1,0 +1,50 @@
+[{
+  "_id": {
+    "$oid": "653e4c714c12ed8cc0d2bab1"
+  },
+  "empID": "1",
+  "empName": "kaushal",
+  "age": 22,
+  "salary": 20000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653e4ca64c12ed8cc0d2bab4"
+  },
+  "empID": "2",
+  "empName": "devansh",
+  "age": 25,
+  "salary": 25000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653e4cb14c12ed8cc0d2bab7"
+  },
+  "empID": "3",
+  "empName": "akshar",
+  "age": 27,
+  "salary": 50000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653e4cc74c12ed8cc0d2baba"
+  },
+  "empID": "4",
+  "empName": "ketan",
+  "age": 22,
+  "salary": 30000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653e4cd74c12ed8cc0d2babd"
+  },
+  "empID": "5",
+  "empName": "khushal",
+  "age": 23,
+  "salary": 35000,
+  "__v": 0
+}]
