@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src='module.js'></script>
+</head>
+<body ng-app="myApp" ng-controller="myCTRL">
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <h1>Search Your Data</h1>
+                <input type="text" class="form-control" ng-model="search">
+            </div>
+
+            <div class="col-4">
+                <h1>Select Your Data</h1>
+                <select ng-model="sel" ng-options="item.empID for item in list" class="form-control"></select>
+            </div>
+
+            <div class="col-4">
+                <h1>Limit Your Data</h1>
+                <input type="number" class="form-control" ng-model="limit">
+            </div>
+            <div class="col-12">
+                <h1>Display Your Data</h1>
+            </div>
+            <div class="col-12">
+                <table class="table table-hover table-bordered w-75">
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Employee Name</th>
+                        <th>Employee Age</th>
+                        <th>Salary</th>
+                        <th>Action</th>
+                        <th>Action</th>
+                    </tr>
+
+                    <tr ng-repeat="item in list | filter: search | filter: sel | limitTo: limit">
+                        <td>{{item.empID}}</td>
+                        <td>{{item.empName}}</td>
+                        <td>{{item.age}}</td>
+                        <td>{{item.salary}}</td>
+                        <td>
+                            <input type="button" value="Update" ng-click="change(item)" class="btn btn-warning">
+                        </td>
+                        <td>
+                            <input type="button" value="Delete" ng-click="delete(item)" class="btn btn-danger">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-6 bg-danger">
+                <h1>Insertion of Data</h1>
+                <form ng-submit="addData()">
+                    <label>Enter Employee ID: </label>
+                    <input type="text" class="form-control" ng-model="newData.empID">
+                    <label>Enter Employee Name: </label>
+                    <input type="text" class="form-control" ng-model="newData.empName">
+                    <label>Enter Employee Age: </label>
+                    <input type="number" class="form-control" ng-model="newData.age">
+                    <label>Enter Employee Salary: </label>
+                    <input type="number" class="form-control" ng-model="newData.salary">
+
+                    <input type="submit" class="btn btn-primary mt-3">
+                </form>
+            </div>
+
+            <div class="col-6 bg-dark text-light" ng-if="display===1">
+                <h1>Update Data</h1>
+                <form ng-submit="changeData()">
+                    <label>Enter Employee ID: </label>
+                    <input type="text" class="form-control" ng-model="new.empID" disabled>
+                    <label>Enter Employee Name: </label>
+                    <input type="text" class="form-control" ng-model="new.empName">
+                    <label>Enter Employee Age: </label>
+                    <input type="number" class="form-control" ng-model="new.age">
+                    <label>Enter Employee Salary: </label>
+                    <input type="number" class="form-control" ng-model="new.salary">
+
+                    <input type="submit" class="btn btn-primary mt-3">
+                </form>
+            </div>
+        </div>
+
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
